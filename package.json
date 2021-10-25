@@ -6,7 +6,9 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "deps": "ncu",
+    "deps:update": "ncu -u"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   },
   "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
   "devDependencies": {
-    "vitepress": "^0.13.0"
+    "npm-check-updates": "^11.8.5",
+    "vitepress": "^0.20.0"
   }
 }
