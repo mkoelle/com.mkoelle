@@ -1,3 +1,3 @@
-# How I write Code
+# Get Coding
 
-fiiz
+Tips on how to set up your computer, projects, and code awesomely!

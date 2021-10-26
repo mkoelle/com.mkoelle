@@ -1,0 +1,63 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "personal site - bucket, bucket policy, cloudfront, OriginAccessIdentity"
+Resources:
+  Content:
+    Type: AWS::S3::Bucket
+  CloudFrontOriginAccessIdentity:
+    Type: "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub "${Content} OAI"
+  ReadPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket: !Ref Content
+      PolicyDocument:
+        Statement:
+          - Action: "s3:GetObject"
+            Effect: Allow
+            Resource: !Sub "arn:aws:s3:::${Content}/*"
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+  CDN:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: CDN for S3-backed website
+        DefaultCacheBehavior:
+          ForwardedValues:
+            QueryString: true
+          TargetOriginId: s3origin
+          ViewerProtocolPolicy: "redirect-to-https"
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+        - ErrorCode: 404
+          ResponsePagePath: "/index.html"
+          ResponseCode: 200
+        - ErrorCode: 403
+          ResponsePagePath: "/index.html"
+          ResponseCode: 200
+        PriceClass: "PriceClass_100"
+        Enabled: true
+        HttpVersion: http2
+        Origins:
+          - Id: s3origin
+            DomainName: !GetAtt "Content.DomainName"
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}"
+Outputs:
+  BucketName:
+    Description: "S3 Bucket Name"
+    Value: !Ref Content
+    Export:
+      Name:
+        Fn::Sub: ${AWS::StackName}-content-bucket
+  DistributionId:
+    Description: "CloudFront Distribution ID"
+    Value: !Ref CDN
+  Domain:
+    Description: "Cloudfront Domain"
+    Value: !GetAtt CDN.DomainName
+    Export:
+      Name:
+        Fn::Sub: ${AWS::StackName}-domain

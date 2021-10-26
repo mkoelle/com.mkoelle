@@ -11,6 +11,8 @@ features:
   details: My project collection
 - title: Guides
   details: Reference material for how to get things done
+- title: Coding
+  details: Reference material for how to get things done
 
 footer: Mark Koelle | Copyright © 2021-present Mark Koelle
 ---
