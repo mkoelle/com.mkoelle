@@ -20,4 +20,4 @@ jobs:
 
     - name: Copy files to the test website with the AWS CLI
       run: |
-        ./deploy-content.sh
+        ./scripts/deploy-content.sh

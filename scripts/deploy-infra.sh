@@ -16,7 +16,7 @@ set -x
 
 aws cloudformation deploy \
   --region ${region} \
-  --template-file cfn/infra.yml \
+  --template-file infra/cfn/infra.yml \
   --stack-name com-${DOMAIN} \
   --tags \
       Owner=mkoelle \
