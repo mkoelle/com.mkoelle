@@ -1,5 +1,10 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Personal site - bucket, bucket policy, cloudfront, OriginAccessIdentity"
+Parameters:
+  GivenDomain:
+    Type: String
+  HostedZoneId:
+    Type: String
 Resources:
   Content:
     Type: AWS::S3::Bucket
@@ -24,6 +29,13 @@ Resources:
     Properties:
       DistributionConfig:
         Comment: CDN for S3-backed website
+        Aliases:
+          - !Sub "${GivenDomain}"
+          - !Sub "www.${GivenDomain}"
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          MinimumProtocolVersion: "TLSv1.2_2018"
+          SslSupportMethod: "sni-only"
         DefaultCacheBehavior:
           ForwardedValues:
             QueryString: true
@@ -45,6 +57,33 @@ Resources:
             DomainName: !GetAtt "Content.DomainName"
             S3OriginConfig:
               OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}"
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties: 
+      DomainName: !Sub "${GivenDomain}"
+      DomainValidationOptions:
+            - DomainName: !Sub "${GivenDomain}"
+              HostedZoneId: !Sub "${HostedZoneId}"
+      SubjectAlternativeNames: 
+        - !Sub "${GivenDomain}"
+        - !Sub "www.${GivenDomain}"
+      ValidationMethod: DNS
+  HostedZoneRecordSet:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId:
+        Ref: HostedZoneId
+      RecordSets:
+        - Name: !Sub "${GivenDomain}"
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2 # This is ALWAYS the cloudfront hosted zone ID
+            DNSName: !GetAtt CDN.DomainName
+        - Name: !Sub "www.${GivenDomain}"
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2 # This is ALWAYS the cloudfront hosted zone ID
+            DNSName: !GetAtt CDN.DomainName
 Outputs:
   BucketName:
     Description: "S3 Bucket Name"
@@ -60,4 +99,4 @@ Outputs:
     Value: !GetAtt CDN.DomainName
     Export:
       Name:
-        Fn::Sub: ${AWS::StackName}-domain
+        Fn::Sub: ${AWS::StackName}-cdn

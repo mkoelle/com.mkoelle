@@ -14,10 +14,16 @@ export DOMAIN=mkoelle
 
 set -x
 
+HOSTEDZONE_ID=$(aws ssm get-parameter --name com-${DOMAIN}-domains-hosted-zone-id --query "Parameter.Value" --output text)
+GIVEN_DOMAIN=$(aws ssm get-parameter --name com-${DOMAIN}-domains-hosted-zone-name --query "Parameter.Value" --output text)
+
 aws cloudformation deploy \
   --region ${region} \
   --template-file infra/cfn/infra.yml \
   --stack-name com-${DOMAIN} \
+  --parameter-overrides \
+      GivenDomain=${GIVEN_DOMAIN%?} \
+      HostedZoneId=${HOSTEDZONE_ID} \
   --tags \
       Owner=mkoelle \
       Project=com.${DOMAIN} \
