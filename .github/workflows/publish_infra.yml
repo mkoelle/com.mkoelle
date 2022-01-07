@@ -8,7 +8,7 @@ jobs:
     name: Update infra
     runs-on: ubuntu-latest
     environment:
-      name: test
+      name: dev
 
     steps:
     - name: Checkout

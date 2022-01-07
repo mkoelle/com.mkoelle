@@ -5,7 +5,7 @@ jobs:
     name: Upload to Amazon S3
     runs-on: ubuntu-latest
     environment:
-      name: test
+      name: dev
 
     steps:
     - name: Checkout
