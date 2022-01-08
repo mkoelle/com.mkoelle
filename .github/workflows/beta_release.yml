@@ -1,7 +1,7 @@
 name: Beta Release
 on: [push]
 jobs:
-  deploy:
+  dev:
     uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy
     with:
       environment: dev

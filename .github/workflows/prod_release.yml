@@ -1,15 +1,15 @@
 name: Prod Release
 on: [push]
 jobs:
-  deploy:
+  dev:
     uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy
     with:
       environment: dev
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  deploy:
-    needs: deploy / dev
+  prod:
+    needs: dev
     uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy
     with:
       environment: prod
