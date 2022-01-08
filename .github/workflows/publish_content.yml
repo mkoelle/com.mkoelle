@@ -12,7 +12,7 @@ on:
         required: true
 jobs:
   deploy:
-    name: Upload to Amazon S3
+    name: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
@@ -28,6 +28,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Copy files to the test website with the AWS CLI
+    - name: Deploy website files
       run: |
         ./scripts/deploy-content.sh
