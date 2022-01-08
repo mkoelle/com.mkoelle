@@ -1,4 +1,4 @@
-name: Beta Release
+name: Prod Release
 on: [push]
 jobs:
   deploy:
