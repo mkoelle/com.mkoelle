@@ -28,7 +28,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Comment: CDN for S3-backed website
+        Comment: !Sub "CDN for ${GivenDomain}"
         Aliases:
           - !Sub "${GivenDomain}"
           - !Sub "www.${GivenDomain}"
