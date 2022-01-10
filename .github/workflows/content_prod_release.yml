@@ -1,11 +1,11 @@
-name: Prod Release
+name: Content - Prod Release
 on: 
   push:
     branches:
       - main
 jobs:
   dev:
-    uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy
+    uses: mkoelle/com.mkoelle/.github/workflows/shared/publish_content.yml@feature/infra-deploy
     with:
       environment: dev
     secrets:
@@ -13,7 +13,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   prod:
     needs: dev
-    uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy
+    uses: mkoelle/com.mkoelle/.github/workflows/shared/publish_content.yml@feature/infra-deploy
     with:
       environment: prod
     secrets:
