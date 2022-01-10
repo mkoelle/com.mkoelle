@@ -1,5 +1,8 @@
 name: Prod Release
-on: [push]
+on: 
+  push:
+    branches:
+      - main
 jobs:
   dev:
     uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy

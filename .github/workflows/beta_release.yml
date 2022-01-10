@@ -1,5 +1,8 @@
 name: Beta Release
-on: [push]
+on: 
+  push:
+    branches-ignore:
+      - main
 jobs:
   dev:
     uses: mkoelle/com.mkoelle/.github/workflows/publish_content.yml@feature/infra-deploy

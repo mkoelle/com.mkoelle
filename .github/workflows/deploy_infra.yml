@@ -3,6 +3,10 @@ on:
   push:
     paths:
       - 'infra/**'
+      - 'scripts/**'
+      - '.github/**'
+    branches:
+      - main
 jobs:
   deploy-dev:
     name: Update infra
@@ -24,7 +28,9 @@ jobs:
     - name: Copy files to the test website with the AWS CLI
       run: |
         ./scripts/deploy-infra.sh
+
   deploy-prod:
+    needs: deploy-dev
     name: Update infra
     runs-on: ubuntu-latest
     environment:
