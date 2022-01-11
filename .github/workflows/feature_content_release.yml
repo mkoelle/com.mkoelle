@@ -1,0 +1,33 @@
+name: Feature - Content
+on: 
+  push:
+    branches-ignore:
+      - main
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test content
+        run: |
+          ./scripts/content-test.sh
+  dev:
+    needs: test
+    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@feature/infra-deploy
+    with:
+      environment: dev
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  integration:
+    name: Integration Test
+    needs: dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test content
+        run: |
+          ./scripts/content-integration.sh
