@@ -15,7 +15,7 @@ jobs:
           ./scripts/content-test.sh
   dev:
     needs: test
-    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@feature/infra-deploy
+    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@main
     with:
       environment: dev
     secrets:
@@ -33,7 +33,7 @@ jobs:
           ./scripts/content-integration.sh
   prod:
     needs: integration
-    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@feature/infra-deploy
+    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@main
     with:
       environment: prod
     secrets:
