@@ -8,4 +8,4 @@ set -u #nounset
 
 set -x #xtrace ON
 
-echo "placeholder"
+cfn-lint ./infra/**/**.yml
