@@ -22,7 +22,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   integration:
-    name: Integration - Test
+    name: Integration Test
     needs: dev
     runs-on: ubuntu-latest
     steps:
