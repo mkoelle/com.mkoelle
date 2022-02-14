@@ -4,9 +4,6 @@
   "description": "Base project for mkoelle.com",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
     "deps": "ncu",
     "deps:update": "ncu -u"
   },
@@ -21,7 +18,6 @@
   },
   "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
   "devDependencies": {
-    "npm-check-updates": "^12.3.0",
-    "vitepress": "^0.22.1"
+    "npm-check-updates": "^12.3.0"
   }
 }
