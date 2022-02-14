@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
   "devDependencies": {
-    "npm-check-updates": "^12.1.0",
-    "vitepress": "^0.21.4"
+    "npm-check-updates": "^12.3.0",
+    "vitepress": "^0.22.1"
   }
 }
