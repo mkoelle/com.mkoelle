@@ -5,7 +5,21 @@
   "main": "index.js",
   "scripts": {
     "deps": "ncu",
-    "deps:update": "ncu -u"
+    "deps:update": "ncu -u",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.31"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "typescript": "^4.5.5",
+    "vite": "^2.8.2",
+    "vue-tsc": "^0.31.4",
+    "node-image-resizer": "^1.0.0",
+    "npm-check-updates": "^12.3.0"
   },
   "repository": {
     "type": "git",
@@ -16,8 +30,5 @@
   "bugs": {
     "url": "https://github.com/mkoelle/com.mkoelle/issues"
   },
-  "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
-  "devDependencies": {
-    "npm-check-updates": "^12.3.0"
-  }
+  "homepage": "https://github.com/mkoelle/com.mkoelle#readme"
 }
