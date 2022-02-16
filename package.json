@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "deps": "ncu",
-    "deps:update": "ncu -u",
+    "deps-update": "ncu -u",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "test-e2e": "playwright test"
   },
   "dependencies": {
     "vue": "^3.2.31"
   },
   "devDependencies": {
+    "@playwright/test": "^1.19.0",
     "@vitejs/plugin-vue": "^2.2.0",
     "node-image-resizer": "^1.0.0",
     "npm-check-updates": "^12.3.0",
