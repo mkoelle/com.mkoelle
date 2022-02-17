@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest -r test",
     "test-e2e": "playwright test"
   },
   "dependencies": {
@@ -17,15 +17,15 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@playwright/test": "^1.19.0",
+    "@playwright/test": "^1.19.1",
     "@vitejs/plugin-vue": "^2.2.0",
     "node-image-resizer": "^1.0.0",
     "npm-check-updates": "^12.3.0",
     "typescript": "^4.5.5",
-    "vite": "^2.8.2",
+    "vite": "^2.8.3",
     "vite-plugin-md": "^0.11.8",
     "vite-plugin-pages": "^0.20.2",
-    "vitest": "^0.3.5",
+    "vitest": "^0.3.6",
     "vue-tsc": "^0.31.4"
   },
   "repository": {
