@@ -8,4 +8,5 @@ set -u #nounset
 
 set -x #xtrace ON
 
-echo "placeholder"
+npm run lint
+npm run test
