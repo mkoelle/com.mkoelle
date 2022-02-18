@@ -19,10 +19,10 @@ Hosted on [AWS S3](https://aws.amazon.com/s3) and served with [CloudFront](https
 - E2E Testing via [playwright](https://playwright.dev)
 - Package updates via [npx](https://github.com/raineorshine/npm-check-updates) or [taze](https://github.com/antfu/taze) (pending decision)
 - Linting via [Eslint](https://eslint.org)
+- Layouts via [vite-plugin-vue-layouts](https://github.com/johncampionjr/vite-plugin-vue-layouts)
 
 ### Pending Feature and Tech
 
-- Layouts via [vite-plugin-vue-layouts](https://github.com/johncampionjr/vite-plugin-vue-layouts)
 - CSS and styling via [TBD](#)
 - State management via [Pina](https://pinia.vuejs.org)
 - Resume via [JSON Resume](https://jsonresume.org/)
