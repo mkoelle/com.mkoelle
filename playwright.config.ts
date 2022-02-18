@@ -1,6 +1,5 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices } from '@playwright/test'
-import { isPropertyAccessChain } from 'typescript'
 
 /**
  * Read environment variables from file.

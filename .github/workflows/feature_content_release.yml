@@ -34,7 +34,7 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Start local server
-        run: npm run preview -- --port:5000
+        run: npm run preview -- --port 5000
       - name: Run Playwright tests
         run: npm run test-e2e
         env:
