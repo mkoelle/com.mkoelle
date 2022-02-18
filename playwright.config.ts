@@ -1,5 +1,5 @@
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test'
+import { devices } from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -29,7 +29,7 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html',{ outputFolder: 'test-results/e2e' , open: 'on-failure'}],
+    ['html', { outputFolder: 'test-results/e2e', open: 'on-failure' }],
     [process.env.CI ? 'github' : 'dot']
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -40,7 +40,7 @@ const config: PlaywrightTestConfig = {
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on-first-retry'
   },
 
   /* Configure projects for major browsers */
@@ -48,31 +48,31 @@ const config: PlaywrightTestConfig = {
     {
       name: 'chromium',
       use: {
-        ...devices['Desktop Chrome'],
-      },
+        ...devices['Desktop Chrome']
+      }
     },
 
     {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        ignoreHTTPSErrors:true,
-      },
+        ignoreHTTPSErrors: true
+      }
     },
 
     {
       name: 'webkit',
       use: {
-        ...devices['Desktop Safari'],
-      },
+        ...devices['Desktop Safari']
+      }
     },
 
     /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
       use: {
-        ...devices['Pixel 5'],
-      },
+        ...devices['Pixel 5']
+      }
     },
     // {
     //   name: 'Mobile Safari',
@@ -85,25 +85,25 @@ const config: PlaywrightTestConfig = {
     {
       name: 'Microsoft Edge',
       use: {
-        channel: 'msedge',
-      },
+        channel: 'msedge'
+      }
     },
     {
       name: 'Google Chrome',
       use: {
-        channel: 'chrome',
-      },
-    },
+        channel: 'chrome'
+      }
+    }
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test-results/',
+  outputDir: 'test-results/'
 
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
   //   port: 3000,
   // },
-};
+}
 
-export default config;
+export default config
