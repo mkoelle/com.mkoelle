@@ -97,14 +97,14 @@ const config: PlaywrightTestConfig = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test-results/',
+  outputDir: 'test-results/'
 }
 
 if (process.env.CI) {
   /* Run the local dev server before starting the tests */
   config.webServer = {
     command: 'npm run preview',
-    port: 3000,
+    port: 3000
   }
 }
 
