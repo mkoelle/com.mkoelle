@@ -42,12 +42,30 @@ jobs:
 
   dev:
     needs: [test, e2e]
-    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@main
-    with:
-      environment: dev
-    secrets:
+    name: deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+    env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy website files
+        run: |
+          ./scripts/content-deploy.sh
 
   integration:
     name: Integration Test
@@ -61,10 +79,28 @@ jobs:
           ./scripts/content-integration.sh
 
   prod:
-    needs: integration
-    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@main
-    with:
-      environment: prod
-    secrets:
+    needs: [integration]
+    name: deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+    env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy website files
+        run: |
+          ./scripts/content-deploy.sh

@@ -100,7 +100,7 @@ const config: PlaywrightTestConfig = {
   outputDir: 'test-results/'
 }
 
-if (process.env.CI) {
+if (process.env.CI && !process.env.BASE_URL) {
   /* Run the local dev server before starting the tests */
   config.webServer = {
     command: 'npm run preview -- --port 3000',
