@@ -103,7 +103,7 @@ const config: PlaywrightTestConfig = {
 if (process.env.CI) {
   /* Run the local dev server before starting the tests */
   config.webServer = {
-    command: 'npm run preview',
+    command: 'npm run preview -- --port 3000',
     port: 3000
   }
 }
