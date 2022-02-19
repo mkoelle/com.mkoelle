@@ -17,4 +17,4 @@ set -x
 npm run build
 
 BUCKET=$(aws cloudformation list-exports --query "Exports[?Name == 'com-${DOMAIN}-content-bucket'].Value" --output text)
-aws s3 cp dist/* "s3://${BUCKET}" --recursive
+aws s3 cp dist/ "s3://${BUCKET}" --recursive
