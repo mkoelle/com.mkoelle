@@ -33,9 +33,9 @@ jobs:
       - name: Build Site
         run: npm run build
       - name: Install Playwright
-        run: npx playwright install --with-deps
-      - name: Install edge
-        run: npx playwright install msedge
+        run: |
+          npx playwright install --with-deps
+          npx playwright install msedge
       - name: Run Playwright tests
         run: npm run test-e2e
       - uses: actions/upload-artifact@v2
@@ -82,10 +82,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
       - name: Install Playwright
-        run: npx playwright install --with-deps
-      - name: Install edge
-        run: npx playwright install msedge
+        run: |
+          npx playwright install --with-deps
+          npx playwright install msedge
       - name: Run Playwright tests
         run: npm run test-e2e
         env:
