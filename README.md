@@ -1,6 +1,6 @@
 # com.mkoelle
 
-Base project for mkoelle.com
+Source code for mkoelle.com
 
 ## Infrastructure
 
@@ -31,3 +31,4 @@ Hosted on [AWS S3](https://aws.amazon.com/s3) and served with [CloudFront](https
 
 - [vitesse-stackter-clean-architect](https://github.com/shamscorner/vitesse-stackter-clean-architect)
 - [vitesse](https://github.com/antfu/vitesse)
+- [cloudfront response headers](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-response-headers-policies/)
