@@ -26,6 +26,7 @@ Hosted on [AWS S3](https://aws.amazon.com/s3) and served with [CloudFront](https
 - CSS and styling via [TBD](#)
 - State management via [Pina](https://pinia.vuejs.org)
 - Resume via [JSON Resume](https://jsonresume.org/)
+- Auto 30 day hosting of feature branches (feature/abc -> `https://url.com/abc`)
 
 ## Reading
 

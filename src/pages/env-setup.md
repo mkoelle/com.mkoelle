@@ -14,7 +14,7 @@
 
 Depending on your system, configure your shell profile with the functions below:
 
-```sh
+```shell
 # .zshrc
 
 #---------

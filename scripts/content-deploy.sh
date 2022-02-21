@@ -18,10 +18,11 @@ npm run build
 
 BRANCH=$(git branch --show-current)
 
-if [[ $BRANCH =~ "feature" ]]; then
-  FEATURE="/$(echo $BRANCH | cut -d'/' -f2)"
-  echo $FEATURE
-fi
+# TODO host feature branch code in sub folder, or similar seperated location.
+# if [[ $BRANCH =~ "feature" ]]; then
+#   FEATURE="/$(echo $BRANCH | cut -d'/' -f2)"
+#   echo $FEATURE
+# fi
 
 BUCKET=$(aws cloudformation list-exports --query "Exports[?Name == 'com-${DOMAIN}-content-bucket'].Value" --output text)
 aws s3 sync dist "s3://${BUCKET}${FEATURE}" --exclude index.html --delete
