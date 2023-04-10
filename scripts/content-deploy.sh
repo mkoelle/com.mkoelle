@@ -15,4 +15,7 @@ export DOMAIN=mkoelle
 set -x
 
 BUCKET=$(aws cloudformation list-exports --query "Exports[?Name == 'com-${DOMAIN}-content-bucket'].Value" --output text)
-aws s3 cp index.html "s3://${BUCKET}"
+
+npm i
+npm run build
+aws s3 cp _site "s3://${BUCKET}"

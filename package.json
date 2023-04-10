@@ -4,11 +4,16 @@
   "description": "Base project for mkoelle.com",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
+    "start": "npm-run-all -p dev-*",
+    "build": "npm-run-all -s build-*",
+    "clean": "rimraf _site",
+    "clean-all": "rimraf _site node_modules package-lock.json",
+    "dev-11ty": "eleventy --serve",
+    "dev-css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --watch --postcss",
+    "build-11ty": "eleventy",
+    "build-css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --postcss",
     "deps": "ncu",
-    "deps:update": "ncu -u"
+    "deps-update": "ncu -u"
   },
   "repository": {
     "type": "git",
@@ -21,7 +26,16 @@
   },
   "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
   "devDependencies": {
-    "npm-check-updates": "^12.3.0",
-    "vitepress": "^0.22.1"
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "autoprefixer": "^10.4.14",
+    "npm-check-updates": "^16.10.7",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "rimraf": "^5.0.0",
+    "tailwindcss": "^3.3.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^3.1.0"
   }
 }
