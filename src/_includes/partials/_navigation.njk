@@ -1,4 +1,9 @@
 <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
+    {% for p in collections.page %}
+        <a href="{{ p.url }}"
+        {% if page.url === p.url%}
+            aria-current='page' data-state='active'
+        {% endif %}
+        >{{ p.data.title }}</a>
+    {% endfor %}
 </nav>

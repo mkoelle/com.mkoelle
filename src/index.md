@@ -1,6 +1,7 @@
 ---
-title: "yes it works"
+title: "Home"
 layout: default
+tags: page
 ---
 
 # woo hello
