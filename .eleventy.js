@@ -1,5 +1,6 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
+const fs = require('fs')
 
 module.exports = (eleventyConfig) => {
 
@@ -11,6 +12,11 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addShortcode('currentDate', (date = DateTime.now()) => {
         return date;
     })
+
+    eleventyConfig.addShortcode("modifiedDate",  (path = this.page?.inputPath) => {
+        console.log(path)
+        return fs.statSync(path)?.mtime?.toISOString()
+    });
 
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);

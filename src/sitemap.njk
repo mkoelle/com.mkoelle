@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: ture
     {%for page in collections.all %}
         <url>
             <loc>https://mkoelle.com{{page.url}}</loc>
-            <lastmod>{% currentDate date %}</lastmod>
+            <lastmod>{% modifiedDate page.inputPath %}</lastmod>
         </url>
     {% endfor %}
 </urlset>
