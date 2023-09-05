@@ -9,4 +9,8 @@ tags: page
 ## nothing here yet
 
 <span class="text-change">Good design</span><br/>
-<span class="change">is<br/>as little design<br/>as possible</span>
+<span class="change">
+    is<br/>
+    as little design<br/>
+    as possible
+</span>
