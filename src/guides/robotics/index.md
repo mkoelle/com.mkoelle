@@ -1,7 +1,7 @@
 ---
-title: "About"
+title: "Robotics"
 layout: default
 tags: page
 ---
 
-# About Page
+# Robotics

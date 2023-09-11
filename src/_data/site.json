@@ -1,5 +1,14 @@
 {
-    "title": "mkoelle.com",
-    "description": "Mark koelle",
-    "keywords": ""
+    "baseURL": "https://mkoelle.com",
+    "author": "Mark koelle",
+    "description": "The whims and dreams of Mark Koelle",
+    "title": "MKoelle",
+    "language": "en",
+    "keywords": "",
+    "social": [
+        {
+            "title": "GitHub",
+            "url": "https://github.com/mkoelle"
+        }
+    ]
 }

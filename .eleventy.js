@@ -13,7 +13,7 @@ module.exports = (eleventyConfig) => {
         return date;
     })
 
-    eleventyConfig.addShortcode("modifiedDate",  (path = this.page?.inputPath) => {
+    eleventyConfig.addShortcode("modifiedDate", (path = this.page?.inputPath) => {
         console.log(path)
         return fs.statSync(path)?.mtime?.toISOString()
     });
@@ -23,6 +23,10 @@ module.exports = (eleventyConfig) => {
     });
 
     return {
-        dir: { input: 'src', output: '_site' }
+        dir: {
+            input: 'src',
+            output: '_site',
+            layouts: '_layouts'
+        }
     };
 }
