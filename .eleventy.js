@@ -1,9 +1,17 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
 const fs = require('fs')
+const markdownIt = require("markdown-it");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = (eleventyConfig) => {
 
+    eleventyConfig.setLibrary("md", markdownIt({
+        // html: true,
+        breaks: true,
+        linkify: true
+    }));
+    eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPassthroughCopy('src/assets')
     eleventyConfig.addPassthroughCopy('src/robots.txt')

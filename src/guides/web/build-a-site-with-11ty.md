@@ -31,7 +31,8 @@ _tmp/
 node_modules/
 ```
 
-We'll be putting all our codebase into a src folder so go ahead and make that now. `mkdir src`.
+We'll be putting all our codebase into a src folder so go ahead and make that now.
+`mkdir src`.
 Now to create your first page!
 
 ```md
@@ -43,7 +44,7 @@ description: "An informed opinion on why dinosaurs are soo awesome!"
 # Why dinosaurs are cool!
 ```
 
-Edit the package.json to add a start and build scripts.
+Edit the `package.json` to add a start and build scripts.
 
 ```json
 // package.json
@@ -56,11 +57,15 @@ Edit the package.json to add a start and build scripts.
 }
 ```
 
-you might be ready to run the app now, but if you do and navigate to localhost:8080, the first thing you will see is a 404. This is because 11ty is serving up the files from the root, and not using `src` as the base of the site.  To see the page you'll have to go to localhost:8080/src/. It's time to add the 11ty config.
+If you were to run the app now the first thing you will see is a 404.
+This is because 11ty is serving up the files from the project root, not `src`.
+It's time to add the 11ty config.
 
 ## Config
 
-Create a `.eleventy.js` file at the root of the project. (next to the `package.json`)
+Create a `.eleventy.js` file at the root of the project (next to the `package.json`).
+Here we'll export the config and return some custom directories for 11ty to use,
+particularly `input` to change the base directory and `layouts` which we'll go into next section.
 
 ```js
 // .eleventy.js
@@ -78,8 +83,11 @@ module.exports = function (eleventyConfig) {
 };
 ```
 
-Now that we specified `src` as the input, our site loads as expected with the src/index.md transforming to the base page.
+Now that we specified `src` as the input, our site loads as expected with `src/index.md` transforming to the base page.
 
 ## Layouts
 
+Now the site looks a bit boring right?
+Time to add some pizzazz!
 Create a new folder `src/_layouts` and add a new `default.njk` file.
+
