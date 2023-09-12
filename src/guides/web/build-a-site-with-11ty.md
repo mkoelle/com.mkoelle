@@ -91,3 +91,30 @@ Now the site looks a bit boring right?
 Time to add some pizzazz!
 Create a new folder `src/_layouts` and add a new `default.njk` file.
 
+```liquid
+{% raw %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{site.title}}{% if title %} - {{title}}{% endif %}
+    </title>
+    <meta charset="UTF-8"/>
+    {% if description %}
+      <meta name="description" content="{{description}}"/>
+    {% endif %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    
+  {% include "partials/_navigation.njk" %}
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+  </body>
+</html>
+{% endraw %}
+```
