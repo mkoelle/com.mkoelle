@@ -120,18 +120,6 @@ const components = [
     ]
   },
   {
-    "name": "Breadboard 830 Tie Point",
-    "purchases": [
-      {
-        "price": 19.99,
-        "count": 10,
-        "source": "Amazon",
-        "date": "2023-Jun-29",
-        "url": "https://www.amazon.com/dp/B07H9X7XVN"
-      }
-    ]
-  },
-  {
     "name": "1 foot USB C to C",
     "purchases": [
       {
