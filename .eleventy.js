@@ -3,11 +3,12 @@ const { DateTime } = require("luxon");
 const fs = require('fs')
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const electronics = require("./src/_data/electronics");
 
 module.exports = (eleventyConfig) => {
 
     eleventyConfig.setLibrary("md", markdownIt({
-        // html: true,
+        html: true,
         breaks: true,
         linkify: true
     }));
@@ -20,6 +21,15 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addShortcode('currentDate', (date = DateTime.now()) => {
         return date;
     })
+
+    eleventyConfig.addShortcode("mainItem", (name) => {
+        item = electronics.components.find(i => i.name === name) ?? electronics.equipment.find(i => i.name === name)
+        return `<div>${item.name}</div><div>${item.total}</div><div>${item.pricePerEach}</div>`
+    });
+    eleventyConfig.addShortcode("projectItem", (name, count) => {
+        item = electronics.components.find(i => i.name === name) ?? electronics.equipment.find(i => i.name === name)
+        return `<div>${item.name}</div><div>${count}</div><div>${item.pricePerEach}</div><div>${count * item.pricePerEach}</div>`
+    });
 
     eleventyConfig.addShortcode("modifiedDate", (path = this.page?.inputPath) => {
         console.log(path)
