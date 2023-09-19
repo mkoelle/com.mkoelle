@@ -7,6 +7,7 @@ module.exports = {
       return {
         ...item,
         count: c.count,
+        price: (item.pricePerEach).toFixed(2),
         total: (c.count * item.pricePerEach).toFixed(2)
       }
     })

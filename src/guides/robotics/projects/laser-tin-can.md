@@ -18,11 +18,25 @@ needed_components:
 {% assign total_price = 0 %}
 
 ## Components Needed
-<ul>
-{%- for doodad in components -%}
-  {% assign total_price = doodad.total | plus: total_price %}
-  <li><p>{{doodad.name}} ${{doodad.total}} </p></li>
-{%- endfor -%}
-</ul>
 
-## Estimated Total Project Cost ${{ total_price }}
+<table>
+  <tr>
+    <th>Component</th>
+    <th>Quantity</th>
+    <th>Individual Price</th>
+    <th>Total</th>
+  </tr>
+  {%- for doodad in components -%}
+    {% assign total_price = doodad.total | plus: total_price %}
+    <tr>
+      <td>{{doodad.name}}</td>
+      <td>{{doodad.count}}</td>
+      <td>${{doodad.price}}</td>
+      <td>${{doodad.total}}</td>
+    </tr>
+  {%- endfor -%}
+  <tr>
+    <td colspan=3> Estimated total cost:</td>
+    <td>${{ total_price}}</td>
+  </tr>
+</table>
