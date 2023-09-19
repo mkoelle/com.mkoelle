@@ -2,7 +2,7 @@
 title: "Laser Tin Can"
 layout: default
 tags: page
-components:
+needed_components:
   - name: laser
     count: 1
   - name: OLED Display
@@ -20,8 +20,9 @@ components:
 ## Components Needed
 <ul>
 {%- for doodad in components -%}
-  <li>{% projectItem doodad.name doodad.count%}</li>
+  {% assign total_price = doodad.total | plus: total_price %}
+  <li><p>{{doodad.name}} ${{doodad.total}} </p></li>
 {%- endfor -%}
 </ul>
 
-## Estimated Total Project Cost {{ total_price }}
+## Estimated Total Project Cost ${{ total_price }}
