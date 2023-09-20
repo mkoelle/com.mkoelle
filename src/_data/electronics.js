@@ -186,8 +186,9 @@ const tally = (item) => {
   const totalPrice = item.purchases.reduce((result, i) => { return result + i.price }, 0)
   return {
     name: item.name,
-    total: totalCount,
+    count: totalCount,
     pricePerEach: (totalPrice / totalCount),
+    total: totalPrice,
     purchases: item.purchases
   }
 }

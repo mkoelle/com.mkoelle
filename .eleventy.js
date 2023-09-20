@@ -9,7 +9,7 @@ module.exports = (eleventyConfig) => {
 
     eleventyConfig.setLibrary("md", markdownIt({
         html: true,
-        breaks: true,
+        breaks: false,
         linkify: true
     }));
     eleventyConfig.addPlugin(syntaxHighlight);
