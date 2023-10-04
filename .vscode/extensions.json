@@ -6,6 +6,7 @@
         "bierner.markdown-emoji",
         "bierner.markdown-mermaid",
         "johnpapa.vscode-peacock",
-        "ronnidc.nunjucks"
+        "ronnidc.nunjucks",
+        "sissel.shopify-liquid"
     ]
 }

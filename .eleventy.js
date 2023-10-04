@@ -14,7 +14,7 @@ module.exports = (eleventyConfig) => {
     }));
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
-    eleventyConfig.addPassthroughCopy('src/assets')
+    eleventyConfig.addPassthroughCopy('src/assets/**/*[^tailwind.css]') // copy all but tailwind.css
     eleventyConfig.addPassthroughCopy('src/robots.txt')
     eleventyConfig.addWatchTarget('./tailwind.config.js')
 
