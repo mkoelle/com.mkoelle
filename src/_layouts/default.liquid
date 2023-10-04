@@ -14,7 +14,7 @@
     {% block head %}{% endblock %}
   </head>
   <body class="antialiased bg-gradient-to-r from-green-800 via-blue-800 to-indigo-600">
-  {% render "partials/_navigation" %}
+  {% render "partials/_navigation", collections: collections, page: page %}
   {% block content %}
     {{ content }}
   {% endblock %}
