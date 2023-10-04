@@ -3,3 +3,5 @@
         <a href="{{ p.url }}"{{ isActive() if page.url === p.url }}>{{ p.data.title }}</a>
     {% endfor %}
 </nav>
+
+{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
