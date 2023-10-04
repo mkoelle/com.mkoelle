@@ -89,7 +89,7 @@ Now that we specified `src` as the input, our site loads as expected with `src/i
 
 Now the site looks a bit boring right?
 Time to add some pizzazz!
-Create a new folder `src/_layouts` and add a new `default.njk` file.
+Create a new folder `src/_layouts` and add a new `default.liquid` file.
 
 ```liquid
 {% raw %} 
@@ -110,7 +110,7 @@ Create a new folder `src/_layouts` and add a new `default.njk` file.
   </head>
   <body>
     
-  {% include "partials/_navigation.njk" %}
+  {% render "partials/_navigation" %}
     {% block content %}
       {{ content | safe }}
     {% endblock %}
