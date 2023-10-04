@@ -1,7 +1,0 @@
-<nav>{% macro isActive() %} aria-current="page" data-state="active" {% endmacro %}
-    {% for p in collections.page %}
-        <a href="{{ p.url }}"{{ isActive() if page.url === p.url }}>{{ p.data.title }}</a>
-    {% endfor %}
-</nav>
-
-{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}

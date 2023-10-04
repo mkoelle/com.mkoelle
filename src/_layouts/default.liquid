@@ -13,11 +13,11 @@
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
     {% block head %}{% endblock %}
   </head>
-  <body>
+  <body class="antialiased bg-gradient-to-r from-green-800 via-blue-400 to-indigo-300">
     
-  {% include "partials/_navigation.njk" %}
+  {% include "partials/_navigation.liquid" %}
   {% block content %}
-    {{ content | safe }}
+    {{ content }}
   {% endblock %}
   </body>
 </html>
