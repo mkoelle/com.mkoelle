@@ -11,3 +11,4 @@ Base project for mkoelle.com
 - [An Eleventy Starter with Tailwind CSS and Alpine.js](https://css-tricks.com/eleventy-starter-with-tailwind-css-alpine-js/)
 - [Let's Learn 11ty Part 7: Adding Tailwind](https://dev.to/psypher1/lets-learn-11ty-part-7-adding-tailwind-5cdh)
 - [How to set up a personal website with 11ty, Markdown, TailwindCSS, and Alpine.js](https://www.janowski.dev/articles/how-to-set-up-personal-website-with-markdown-tailwind-alpinejs/)
+- [Eleventy (11ty), Vite, Tailwind, and Alpine.js – Rapid static site starter framework](https://fullstackdigital.io/blog/eleventy-vite-tailwind-and-alpine-js-rapid-static-site-starter-framework/)
