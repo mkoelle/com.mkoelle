@@ -5,6 +5,8 @@ const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const electronics = require("./src/_data/electronics");
 
+const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
+
 module.exports = (eleventyConfig) => {
 
     eleventyConfig.setLibrary("md", markdownIt({
@@ -14,8 +16,11 @@ module.exports = (eleventyConfig) => {
     }));
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
-    eleventyConfig.addPassthroughCopy('src/assets/**/*[^tailwind.css]') // copy all but tailwind.css
+    
+  eleventyConfig.addPlugin(EleventyVitePlugin, {});
+    eleventyConfig.addPassthroughCopy('src/assets')
     eleventyConfig.addPassthroughCopy('src/robots.txt')
+
     eleventyConfig.addWatchTarget('./tailwind.config.js')
 
     eleventyConfig.addShortcode('currentDate', (date = DateTime.now()) => {

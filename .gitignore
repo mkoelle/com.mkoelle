@@ -9,3 +9,4 @@ _tmp/
 node_modules/
 
 foo
+.11ty-vite

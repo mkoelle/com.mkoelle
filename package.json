@@ -4,14 +4,13 @@
   "description": "Base project for mkoelle.com",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all -p dev-*",
-    "build": "npm-run-all -s build-*",
+    "start": "npx @11ty/eleventy --serve",
+    "dev": "npx @11ty/eleventy --serve",
+    "serve": "npx @11ty/eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch",
+    "build": "npx @11ty/eleventy",
     "clean": "rimraf _site",
     "clean-all": "rimraf _site node_modules package-lock.json",
-    "dev-11ty": "eleventy --serve",
-    "dev-css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --watch --postcss",
-    "build-11ty": "eleventy",
-    "build-css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --postcss",
     "deps": "ncu",
     "deps-update": "ncu -u"
   },
@@ -29,6 +28,7 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
     "autoprefixer": "^10.4.15",
     "daisyui": "^3.7.4",
     "npm-check-updates": "^16.13.2",
@@ -37,5 +37,8 @@
     "prismjs": "^1.29.0",
     "rimraf": "^5.0.1",
     "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.1"
   }
 }

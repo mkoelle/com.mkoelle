@@ -1,7 +1,12 @@
 <nav>
-    {%- for p in collections.page %}
-        <a href="{{ p.url }}"{% if page.url == p.url %}aria-current="page" data-state="active"{% endif %}>{{ p.data.title }}</a>
-    {%- endfor %}
+  {%- for p in collections.page %}
+    <a href="{{ p.url }}" {% if page.url == p.url %}
+        aria-current="page"
+        data-state="active"
+    {% endif %}>
+      {{ p.data.title }}
+    </a>
+  {%- endfor %}
 </nav>
 
 {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
