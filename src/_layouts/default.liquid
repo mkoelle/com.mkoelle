@@ -10,10 +10,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
+    <link
+    href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+    rel="stylesheet"
+  />
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
     {% block head %}{% endblock %}
   </head>
-  <body class="antialiased bg-gradient-to-r from-green-800 via-blue-800 to-indigo-600">
+  <body class="antialiased bg-cover bg-no-repeat bg-fixed bg-center bg-black bg-gradient-to-br from-emerald-900 to-transparent">
   {% render "partials/_navigation", collections: collections, page: page %}
   {% block content %}
     {{ content }}
