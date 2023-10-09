@@ -8,6 +8,22 @@
     "social": [
         {
             "title": "GitHub",
+            "logo": "bxl-github",
+            "url": "https://github.com/mkoelle"
+        },
+        {
+            "title": "LinkedIn",
+            "logo": "bxl-linkedin",
+            "url": "https://github.com/mkoelle"
+        },
+        {
+            "title": "Twitter",
+            "logo": "bxl-twitter",
+            "url": "https://github.com/mkoelle"
+        },
+        {
+            "title": "Facebook",
+            "logo": "bxl-facebook-square",
             "url": "https://github.com/mkoelle"
         }
     ]
