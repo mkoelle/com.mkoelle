@@ -15,7 +15,7 @@ jobs:
           ./scripts/content-test.sh
   dev:
     needs: test
-    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@main
+    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@feature/11ty
     with:
       environment: dev
     secrets:
