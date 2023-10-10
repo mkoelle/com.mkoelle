@@ -17,7 +17,7 @@
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
     {% block head %}{% endblock %}
   </head>
-  <body class="antialiased bg-cover bg-no-repeat bg-fixed bg-center bg-black bg-gradient-to-br from-emerald-900 to-transparent dark:text-white flex flex-col min-h-screen ">
+  <body class="antialiased bg-cover bg-no-repeat bg-fixed bg-center bg-black bg-gradient-to-br from-emerald-900 dark:text-white flex flex-col min-h-screen ">
   {% render "partials/_navigation", collections: collections, page: page %}
   <div id="main" class="flex-grow container mx-auto" >
   {% block content %}
