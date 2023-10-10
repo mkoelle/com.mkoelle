@@ -1,7 +1,7 @@
 ---
 title: "Build a site with 11ty, tailwind, and alpine.js"
-layout: default
-tags: page
+layout: guide
+tags: guide
 ---
 
 # Build a site with 11ty
