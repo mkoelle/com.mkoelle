@@ -2,6 +2,10 @@
 
 Base project for mkoelle.com
 
+## Tips
+
+- `npx cspell src/**/* --show-suggestions`
+
 ## Credits
 
 - [Atom, a free Tailwind CSS portfolio template](https://redpixelthemes.com/templates/atom/)
