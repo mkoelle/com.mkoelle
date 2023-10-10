@@ -7,5 +7,6 @@
       {{ p.data.title }}
     </a>
   {%- endfor %}
+  <button @click="darkMode = !darkMode" class="bx bx-moon dark:bx-sun"></button>
 </nav>
 <div class="w-full bg-gradient-to-b from-black h-3 md:h-6"></div>
