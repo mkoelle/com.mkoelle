@@ -17,9 +17,9 @@ skills:
     percent: 20
 ---
 
-{% render "partials/_profile_hero", 
-  sting: "Heyo, Mark Koelle Here!" ,
-  socials: site.social
+{% render "partials/_profile_hero",
+sting: "Hey, Mark Koelle Here!" ,
+socials: site.social
 %}
 
 <div class="bg-gradient-to-b from-transparent via-slate-800 px-12" id="about">
@@ -32,13 +32,11 @@ skills:
         I'm your AWS evangelist, team lead, and a general code fiend.
       </h4>
       <p class="pt-6 leading-relaxed text-gray-200">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        There was certainly too much of it in the air.
+        Even the Duchess sneezed occasionally; and as for the baby,
+        it was sneezing and howling alternately without a momentU+0060s pause.
+        The only things in the kitchen that did not sneeze, were the cook,
+        and a large cat which was sitting on the hearth and grinning from ear to ear.
       </p>
       <div class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start">
         <div class="flex items-center justify-center sm:justify-start">
@@ -51,13 +49,60 @@ skills:
         </div>
         <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0 space-x-2 ">
           {%- for social in site.social %}
-            <a href="{{ social.url }}">
-              <div class="bx {{ social.logo }} text-2xl  hover:text-orange-400"></div>
-            </a>
+          <a href="{{ social.url }}">
+            <div class="bx {{ social.logo }} text-2xl  hover:text-orange-400"></div>
+          </a>
           {%- endfor %}
         </div>
       </div>
     </div>
-    {%  render 'partials/_percent_list', items: skills %} 
+    {% render 'partials/_percent_list', items: skills %}
+  </div>
+</div>
+
+<div class="container py-16 md:py-20" id="passions">
+  <h2 class="text-center  text-4xl font-semibold uppercase  sm:text-5xl lg:text-6xl">
+    Things I'm passionate about
+  </h2>
+  <h3 class="pt-6 text-center  text-xl font-medium  sm:text-2xl lg:text-3xl">
+    These are things I will talk at length about, If left unchecked.
+  </h3>
+  <div class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3  ">
+    {% render "partials/_tip_card",
+    image: "https://picsum.photos/seed/code/200/200" ,
+    image_alt: "Illustration emphasizing code quality",
+    title: "Code Quality",
+    slug: "Clean Code is a must"
+    %}
+    {% render "partials/_tip_card",
+    image: "https://picsum.photos/seed/automation/200/200" ,
+    image_alt: "Illustration emphasizing automation",
+    title: "Automation",
+    slug: "Pipelines, Continuous Integration and Deployment"
+    %}
+    {% render "partials/_tip_card",
+    image: "https://picsum.photos/seed/test/200/200" ,
+    image_alt: "Illustration of test driven development",
+    title: "Quality Checks",
+    slug: "Unit tests, Test driven design and development"
+    %}
+    {% render "partials/_tip_card",
+    image: "https://picsum.photos/seed/architecture/200/200" ,
+    image_alt: "Illustration of architecture",
+    title: "Application architecture",
+    slug: "Domain driven design, Build only whats needed"
+    %}
+    {% render "partials/_tip_card",
+    image: "https://picsum.photos/seed/Cloud/200/200" ,
+    image_alt: "Illustration of cloud platforms",
+    title: "Cloud Platforms",
+    slug: "Hybrid and off-prem systems, mostly AWS"
+    %}
+    {% render "partials/_tip_card",
+    image: "https://picsum.photos/seed/board/200/200" ,
+    image_alt: "Illustration of board games",
+    title: "Board Games",
+    slug: "Having a great time both collaborating or competing"
+    %}
   </div>
 </div>

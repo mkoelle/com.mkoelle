@@ -4,7 +4,8 @@ Base project for mkoelle.com
 
 ## Tips
 
-- `npx cspell src/**/* --show-suggestions`
+- `npx cspell src/**/* --show-suggestions --unique`
+- `git diff --name-only | npx cspell --file-list stdin --show-suggestions --unique`
 
 ## Credits
 
