@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .change {
-    color: rgb(212, 0, 152);
-  }
-}
-
 nav {
   display: flex;
   justify-content: center;
@@ -19,11 +13,12 @@ nav {
   color: lightgray;
 }
 
-nav > a {
+nav>a {
   display: block;
   padding: 1rem 2rem;
   color: lightgray;
 }
-nav > a:hover {
+
+nav>a:hover {
   color: aqua;
 }

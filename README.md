@@ -7,6 +7,24 @@ Base project for mkoelle.com
 - `npx cspell src/**/* --show-suggestions --unique`
 - `git diff --name-only | npx cspell --file-list stdin --show-suggestions --unique`
 
+## Feedback
+
+Currently trying out [cusdis](https://cusdis.com/doc#/) for feedback.
+
+Pros:
+
+- Free (limited to 100 posts a month)
+- Allows users to post without requiring login
+
+Cons:
+
+- Customizing theme/style is hacky
+
+Todo: investigate [giscus](https://giscus.app/)
+
+- requires user login
+- unlimited use
+
 ## Credits
 
 - [Atom, a free Tailwind CSS portfolio template](https://redpixelthemes.com/templates/atom/)
