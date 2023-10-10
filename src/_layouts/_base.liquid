@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))" x-bind:class="{ 'dark': darkMode }">
+
+<head>
+  <title>{{site.title}}{% if title %} - {{title}}{% endif %}
+  </title>
+  <meta charset="UTF-8" />
+  {% if description %}
+  <meta name="description" content="{{description}}" />
+  {% endif %}
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+  <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+  {% block head %}{% endblock %}
+</head>
+
+<body
+  class="antialiased bg-cover bg-no-repeat bg-fixed bg-center dark:bg-black dark:bg-gradient-to-br dark:from-emerald-900 dark:text-white bg-green-400 text-black bg-gradient-to-tl from-white flex flex-col min-h-screen ">
+  {% render "partials/_navigation", collections: collections, page: page %}
+    {% block content %}
+    {{ content }}
+    {% endblock %}
+  {% render "partials/footer", socials: site.social %}
+  <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+  <div @keyup.space.window="$refs.wow.play()"></div>
+  <audio x-ref="wow">
+    <source src="/assets/audio/owen-wilson-wow-q.mp3" type="audio/mpeg" />
+  </audio>
+</body>
+</html>

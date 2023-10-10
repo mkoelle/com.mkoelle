@@ -1,40 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
-  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))" x-bind:class="{ 'dark': darkMode }">
-
-<head>
-  <title>{{site.title}}{% if title %} - {{title}}{% endif %}
-  </title>
-  <meta charset="UTF-8" />
-  {% if description %}
-  <meta name="description" content="{{description}}" />
-  {% endif %}
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
-  <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
-  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
-  {% block head %}{% endblock %}
-</head>
-
-<body
-  class="antialiased bg-cover bg-no-repeat bg-fixed bg-center dark:bg-black dark:bg-gradient-to-br dark:from-emerald-900 dark:text-white bg-white text-black bg-gradient-to-br from-green-400 flex flex-col min-h-screen ">
-  {% render "partials/_navigation", collections: collections, page: page %}
-  <div id="main" class="flex-grow container mx-auto">
-    {% block content %}
-    {{ content }}
-    {% endblock %}
-    <div id="cusdis_thread"
-      data-host="https://cusdis.com"
-      data-app-id="8b311843-9ee0-4069-8fd5-fa867e9952e2"
-      data-page-id="{{ page.url }}"
-      data-page-url="{{ page.url }}"
-      data-page-title="{{site.title}}{% if title %} - {{title}}{% endif %}"
-    ></div>
+---
+layout: _base.liquid
+---
+<main class="flex-grow container mx-auto">
+  {{ content }}
+  <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="8b311843-9ee0-4069-8fd5-fa867e9952e2"
+    data-page-id="{{ page.url }}" data-page-url="{{ page.url }}"
+    data-page-title="{{site.title}}{% if title %} - {{title}}{% endif %}"></div>
   </div>
   <script async defer src="/assets/js/cusdis.js"></script>
-  {% render "partials/footer", socials: site.social %}
-  <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
-</body>
-
-</html>
+</main>
