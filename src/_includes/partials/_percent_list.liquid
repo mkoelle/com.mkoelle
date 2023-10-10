@@ -2,10 +2,10 @@
 {%- for item in items %}
   <div class="w-full">
     <div class="flex items-end justify-between">
-      <h4 class="font-body font-semibold uppercase ">
+      <h4 class="font-semibold uppercase ">
         {{ item.title }}
       </h4>
-      <h3 class="font-body text-3xl font-bold">{{ item.percent }}%</h3>
+      <h3 class="text-3xl font-bold">{{ item.percent }}%</h3>
     </div>
     <div class="mt-2 h-3 w-full rounded-full bg-green-900">
       <div class="h-3 rounded-full bg-lime-400" style="width: {{ item.percent }}%"></div>
