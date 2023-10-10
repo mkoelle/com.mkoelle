@@ -18,4 +18,6 @@ BUCKET=$(aws cloudformation list-exports --query "Exports[?Name == 'com-${DOMAIN
 
 npm i
 npm run build
-aws s3 cp --recursive _site "s3://${BUCKET}"
+
+aws s3 sync _site "s3://${BUCKET}" --exclude index.html --delete
+aws s3 cp _site "s3://${BUCKET}" --recursive --exclude "*" --include "index.html" --cache-control 'max-age=0'
