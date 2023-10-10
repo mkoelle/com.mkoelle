@@ -2,11 +2,10 @@
     "recommendations": [
         "bradlc.vscode-tailwindcss",
         "streetsidesoftware.code-spell-checker",
-        "ginfuru.better-nunjucks",
         "bierner.markdown-emoji",
         "bierner.markdown-mermaid",
         "johnpapa.vscode-peacock",
-        "ronnidc.nunjucks",
-        "sissel.shopify-liquid"
+        "sissel.shopify-liquid",
+        "github.vscode-github-actions"
     ]
 }
