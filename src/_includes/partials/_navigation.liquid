@@ -1,8 +1,11 @@
 {% assign navPages = collections.all | eleventyNavigation %}
-<nav>
-  <div class="flex-grow"></div>
+<nav class="flex h-13 bg-black">
+  <div class="flex-grow "></div>
   {%- for entry in navPages %}
-    <a href="{{ entry.url }}" {% if entry.url == page.url %} aria-current="page" data-state="active" {% endif %}>{{ entry.title }}</a>
+  <a href="{{ entry.url }}" 
+{% if entry.url==page.url %} aria-current="page" data-state="active" {% endif %}
+   class="px-4 hover:text-teal-400">{{
+    entry.title }}</a>
   {%- endfor %}
   <div class="flex-grow"></div>
   <button @click="darkMode = !darkMode" class="bx bx-moon dark:bx-sun"></button>
