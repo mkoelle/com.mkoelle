@@ -1,5 +1,5 @@
 {% assign navPages = collections.all | eleventyNavigation %}
-<nav class="flex h-13 bg-black">
+<nav class="flex h-13 bg-black z-10">
   <div class="flex-grow "></div>
   {%- for entry in navPages %}
   <a href="{{ entry.url }}" 
@@ -10,4 +10,4 @@
   <div class="flex-grow"></div>
   <button @click="darkMode = !darkMode" class="bx bx-moon dark:bx-sun"></button>
 </nav>
-<div class="w-full bg-gradient-to-b from-black h-3 md:h-6"></div>
+<div class="w-full bg-gradient-to-b from-black h-3 md:h-6 z-10"></div>
