@@ -1,9 +1,9 @@
 ---
 layout: _base.liquid
 ---
-<div class="flex flex-grow" x-data="{ isOpen: true }">
+<div class="flex flex-grow " x-data="{ isOpen: true }">
   <!-- Sidenav -->
-  <aside class="bg-gradient-to-r from-emerald-950 via-emerald-950 flex flex-colitems-center -mt-3 md:-mt-6 -mb-6 z-0" :class="{ 'flex-auto': isOpen }">
+  <aside class="bg-gradient-to-r from-emerald-950 via-emerald-950 flex flex-colitems-center text-white -mt-3 md:-mt-6 -mb-16 z-0" :class="{ 'flex-auto': isOpen }">
     <div class="sticky pt-12 px-2 w-full mt-3 md:mt-6">
       <div class="absolute right-2 top-2  cursor-pointer" @click="isOpen = !isOpen">
         <div class="bx bx-chevrons-left text-4xl hover:text-orange-400"  :class="{ 'sr-only': !isOpen }"></div>
