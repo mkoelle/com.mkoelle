@@ -7,7 +7,9 @@
    class="px-4 hover:text-teal-400">{{
     entry.title }}</a>
   {%- endfor %}
-  <div class="flex-grow"></div>
-  <button @click="darkMode = !darkMode" class="bx bx-moon dark:bx-sun"></button>
+  <div class="flex-grow flex justify-end mr-3 lg:mr-10 ">
+    <button @click="darkMode = !darkMode" class="bx bx-moon dark:bx-sun"></button>
+    </div>
+
 </nav>
 <div class="w-full bg-gradient-to-b from-black h-3 md:h-6 z-10"></div>
