@@ -17,7 +17,7 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     
-  eleventyConfig.addPlugin(EleventyVitePlugin, {});
+    eleventyConfig.addPlugin(EleventyVitePlugin, {});
     eleventyConfig.addPassthroughCopy('src/assets')
     eleventyConfig.addPassthroughCopy('src/robots.txt')
 
