@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mkoelle.com
+
+# Sitemaps
+Sitemap: https://mkoelle.com/sitemap.xml

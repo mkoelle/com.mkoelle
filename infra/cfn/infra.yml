@@ -8,6 +8,12 @@ Parameters:
 Resources:
   Content:
     Type: AWS::S3::Bucket
+    Properties:
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: ObjectWriter
+      WebsiteConfiguration:
+        IndexDocument: index.html
   CloudFrontOriginAccessIdentity:
     Type: "AWS::CloudFront::CloudFrontOriginAccessIdentity"
     Properties:
@@ -41,7 +47,10 @@ Resources:
             QueryString: true
           TargetOriginId: s3origin
           ViewerProtocolPolicy: "redirect-to-https"
-        DefaultRootObject: index.html
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt CDNRequestHandler.FunctionMetadata.FunctionARN
+        # DefaultRootObject: index.html
         CustomErrorResponses:
         - ErrorCode: 404
           ResponsePagePath: "/index.html"
@@ -57,6 +66,15 @@ Resources:
             DomainName: !GetAtt "Content.DomainName"
             S3OriginConfig:
               OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}"
+  CDNRequestHandler:
+    Type: AWS::CloudFront::Function
+    Properties: 
+      AutoPublish: True
+      FunctionCode: function handler(e){var i=e.request,n=i.uri;return n.endsWith("/")?i.uri+="index.html":n.includes(".")||(i.uri+="/index.html"),i}
+      FunctionConfig: 
+        Comment: redirects folder requests for clean urls
+        Runtime: cloudfront-js-1.0
+      Name: Index-Server
   Certificate:
     Type: AWS::CertificateManager::Certificate
     Properties: 

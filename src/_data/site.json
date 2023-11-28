@@ -1,0 +1,30 @@
+{
+    "baseURL": "https://mkoelle.com",
+    "author": "Mark koelle",
+    "description": "The whims and dreams of Mark Koelle",
+    "title": "MKoelle",
+    "language": "en",
+    "keywords": "",
+    "social": [
+        {
+            "title": "GitHub",
+            "logo": "bxl-github",
+            "url": "https://github.com/mkoelle"
+        },
+        {
+            "title": "LinkedIn",
+            "logo": "bxl-linkedin",
+            "url": "https://www.linkedin.com/in/mkoelle/"
+        },
+        {
+            "title": "Twitter",
+            "logo": "bxl-twitter",
+            "url": "https://twitter.com/mkoelle"
+        },
+        {
+            "title": "Facebook",
+            "logo": "bxl-facebook-square",
+            "url": "https://www.facebook.com/mark.koelle"
+        }
+    ]
+}

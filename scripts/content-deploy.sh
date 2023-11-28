@@ -15,4 +15,18 @@ export DOMAIN=mkoelle
 set -x
 
 BUCKET=$(aws cloudformation list-exports --query "Exports[?Name == 'com-${DOMAIN}-content-bucket'].Value" --output text)
-aws s3 cp index.html "s3://${BUCKET}"
+
+npm i
+npm run build
+
+aws s3 sync _site "s3://${BUCKET}" \
+  --exclude '**/index.html' \
+  --exclude 'index.html' \
+  --delete
+
+aws s3 cp _site "s3://${BUCKET}" \
+  --recursive \
+  --exclude "*" \
+  --include "**/index.html" \
+  --include "index.html" \
+  --cache-control 'max-age=0'
