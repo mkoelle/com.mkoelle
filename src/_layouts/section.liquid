@@ -1,0 +1,54 @@
+---
+layout: _base.liquid
+---
+<div class="flex flex-grow " x-data="{ isOpen: true }">
+  <!-- Sidenav -->
+  <aside class="bg-gradient-to-r from-emerald-950 via-emerald-950 flex flex-colitems-center text-white -mt-3 md:-mt-6 -mb-16 z-0" :class="{ 'flex-auto': isOpen }">
+    <div class="sticky pt-12 px-2 w-full mt-3 md:mt-6">
+      <div class="absolute right-2 top-2  cursor-pointer" @click="isOpen = !isOpen">
+        <div class="bx bx-chevrons-left text-4xl hover:text-orange-400"  :class="{ 'sr-only': !isOpen }"></div>
+        <div class="bx bx-chevrons-right text-4xl hover:text-orange-400"  :class="{ 'sr-only': isOpen }"></div>
+      </div>
+      <nav>
+        <ul class="flex flex-col overflow-hidden space-y-2">
+          <li class="hover:text-gray-200 h-8">
+            <a href="#" class="flex items-center h-8">
+              <div class="bx bx-home-heart text-2xl hover:text-orange-400"></div>
+              <span class="pl-2" :class="{ 'sr-only': !isOpen }">
+                Home
+              </span>
+            </a>
+          </li>
+          <li class="hover:text-gray-200 h-8">
+            <a href="#" class="flex items-center h-8">
+              <div class="bx bx-book-reader text-2xl hover:text-orange-400"></div>
+              <span class="pl-2" :class="{ 'sr-only': !isOpen }">
+                Learn
+              </span>
+            </a>
+          </li>
+          <li class="hover:text-gray-200 h-8">
+            <a href="#" class="flex items-center h-8">
+              <div class="bx bx-info-square text-2xl hover:text-orange-400"></div>
+              <span class="pl-2" :class="{ 'sr-only': !isOpen }">
+                About
+              </span>
+            </a>
+          </li>
+          <li class="flex items-center hover:text-gray-200 h-8">
+            <a href="#" class="flex items-center h-8">
+              <div class="bx bx-message-dots text-2xl hover:text-orange-400"></div>
+              <span class="pl-2" :class="{ 'sr-only': !isOpen }">
+                Contact
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </aside>
+  <main class="flex-grow flex-col container mx-auto ">
+    {{ content }}
+  </main>
+</div>

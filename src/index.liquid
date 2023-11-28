@@ -1,0 +1,105 @@
+---
+title: "Home"
+layout: default
+tags: page
+skills:
+  - title: Style, Design, & Color theory
+    percent: 12
+  - title: TypeScript & Javascript
+    percent: 80
+  - title: C#
+    percent: 60
+  - title: Python
+    percent: 60
+  - title: CI/CD
+    percent: 90
+  - title: Robotics
+    percent: 20
+---
+
+{% render "partials/_profile_hero",
+sting: "Hey, Mark Koelle Here!" ,
+socials: site.social
+%}
+
+<div class="bg-gradient-to-b from-transparent dark:via-slate-800 via-emerald-600 px-12" id="about">
+  <div class="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
+    <div class="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
+      <h2 class="text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
+        Who am I?
+      </h2>
+      <h4 class="pt-6 text-xl font-medium  sm:text-2xl lg:text-3xl">
+        I'm your AWS evangelist, team lead, and a general code fiend.
+      </h4>
+      <p class="pt-6 leading-relaxed dark:text-gray-200 text-slate-800">
+        Weither it's coding, desdigining, orchestrating, or mentoring I take pride in my work.
+        
+      </p>
+      <div class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start">
+        <div class="flex items-center justify-center sm:justify-start">
+          <p class="text-lg font-semibold uppercase text-grey-200">
+            Connect on
+          </p>
+          <div class="hidden sm:block">
+            <i class="bx bx-chevron-right text-2xl text-yellow-400"></i>
+          </div>
+        </div>
+        <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0 space-x-2 ">
+          {%- for social in site.social %}
+          <a href="{{ social.url }}">
+            <div class="bx {{ social.logo }} text-2xl  hover:text-orange-400"></div>
+          </a>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+    {% render 'partials/_percent_list', items: skills %}
+  </div>
+</div>
+
+<div class="container py-16 md:py-20" id="passions">
+  <h2 class="text-center  text-4xl font-semibold uppercase  sm:text-5xl lg:text-6xl">
+    Things I'm passionate about
+  </h2>
+  <h3 class="pt-6 text-center  text-xl font-medium  sm:text-2xl lg:text-3xl">
+    These are things I will talk at length about, If left unchecked.
+  </h3>
+  <div class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3  ">
+    {% render "partials/_tip_card",
+    image: "assets/img/clean-code.jpeg" ,
+    image_alt: "Illustration emphasizing code quality",
+    title: "Professional Code",
+    slug: "Clean Code is a must"
+    %}
+    {% render "partials/_tip_card",
+    image: "assets/img/automation.jpeg" ,
+    image_alt: "Illustration emphasizing automation",
+    title: "Automation",
+    slug: "Pipelines, Continuous Integration and Deployment"
+    %}
+    {% render "partials/_tip_card",
+    image: "assets/img/quality-checks.jpeg" ,
+    image_alt: "Illustration of test driven development",
+    title: "Quality Checks",
+    slug: "Unit tests, Test driven design and development"
+    %}
+    {% render "partials/_tip_card",
+    image: "assets/img/architecture.jpeg" ,
+    image_alt: "Illustration of architecture",
+    title: "Application architecture",
+    slug: "Domain driven design, Build only whats needed"
+    %}
+    {% render "partials/_tip_card",
+    image: "assets/img/cloud-platforms.jpeg" ,
+    image_alt: "Illustration of cloud platforms",
+    title: "Cloud Platforms",
+    slug: "Hybrid and off-prem systems, mostly AWS"
+    %}
+    {% render "partials/_tip_card",
+    image: "assets/img/games.jpeg" ,
+    image_alt: "Illustration of board games",
+    title: "Board Games",
+    slug: "Having a great time both collaborating or competing"
+    %}
+  </div>
+</div>

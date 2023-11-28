@@ -1,1 +1,12 @@
-node_modules
+# mac filesystem  
+.DS_Store
+
+# 11ty generated files
+_site/
+_tmp/
+
+# js
+node_modules/
+
+foo
+.11ty-vite

@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "bradlc.vscode-tailwindcss",
+        "streetsidesoftware.code-spell-checker",
+        "bierner.markdown-emoji",
+        "bierner.markdown-mermaid",
+        "johnpapa.vscode-peacock",
+        "sissel.shopify-liquid",
+        "github.vscode-github-actions"
+    ]
+}

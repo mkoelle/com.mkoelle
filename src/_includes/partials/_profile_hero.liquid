@@ -1,0 +1,25 @@
+<div class="flex flex-col items-center justify-center lg:flex-row pt-20 pb-10 sm:pt-40 sm:pb-40 lg:pt-60 lg:pb-40">
+  <div class="rounded-full border-8 border-cyan-900 shadow-xl">
+    <img src="/assets/img/profile-picture.png" class="h-48 rounded-full sm:h-56" alt="author" />
+  </div>
+  <div class="pt-10 sm:pt-10 lg:pl-10 lg:pt-0">
+    <h1 class="text-center text-4xl sm:text-left sm:text-5xl md:text-6xl">
+      {{ sting }}
+    </h1>
+    <div class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start">
+      <div class="flex items-center justify-center pl-0 sm:justify-start md:pl-1">
+        <p class="text-lg uppercase">Connect with me</p>
+        <div class="hidden sm:block">
+          <i class="bx bx-chevron-right text-3xl text-yellow-400"></i>
+        </div>
+      </div>
+      <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0 space-x-2 ">
+      {%- for social in socials %}
+        <a href="{{ social.url }}">
+          <div class="bx {{ social.logo }} text-2xl hover:text-orange-400"></div>
+        </a>
+      {%- endfor %}
+      </div>
+    </div>
+  </div>
+</div>
