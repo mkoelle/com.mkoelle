@@ -5,15 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "dev": "npx @11ty/eleventy --serve",
-    "serve": "npx @11ty/eleventy --serve",
-    "watch": "npx @11ty/eleventy --watch",
     "build": "npx @11ty/eleventy",
     "clean": "rimraf _site",
     "clean-all": "rimraf _site node_modules package-lock.json",
-    "check-deps": "ncu",
-    "fix-deps": "ncu -u",
-    "check-spell": "cspell src/**/* --show-suggestions --unique"
+    "deps-check": "ncu",
+    "deps-fix": "ncu -u",
+    "cspell-source": "cspell src/**/* --show-suggestions --unique",
+    "cspell-changed": "git diff --name-only | cspell --file-list stdin --show-suggestions --unique"
   },
   "repository": {
     "type": "git",
@@ -32,7 +30,6 @@
     "@11ty/eleventy-plugin-vite": "^4.0.0",
     "autoprefixer": "^10.4.19",
     "cspell": "^8.10.4",
-    "daisyui": "^4.12.10",
     "npm-check-updates": "^16.14.20",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.39",

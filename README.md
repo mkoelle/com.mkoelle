@@ -1,39 +1,93 @@
-# com.mkoelle
+# Mkoelle.com
 
-Content and infrastructure for mkoelle.com
+Content and infrastructure for [mkoelle.com](https://mkoelle.com).
 
 ## Built with
 
-* [![Eleventy][11ty_badge]](https://www.11ty.dev/)
-* [![Svelte][Svelte_badge]](https://svelte.dev/)
-* Tailwind
-* PrismJS
-* DaisyUI
-* AlpineJS
-* [Cusdis](https://cusdis.com/doc#/)
+[![Eleventy][11ty_badge]](https://www.11ty.dev/)
+[![Tailwind][Tailwind_badge]](https://tailwindcss.com/)
+[![PrismJS][PrismJS_badge]](https://prismjs.com/)
+[![AlpineJS][AlpineJS_badge]](https://alpinejs.dev/)
+[![Cusdis][Cusdis_badge]](https://cusdis.com/)
 
 ## Deployed with
 
-This site is hosted on AWS
+This site is hosted on [![Amazon Web Services][AWS_badge]](https://aws.amazon.com/)
+using the following services:
 
+* S3
+* Route53
+* Cloudfront
+* CloudFront Functions
+* Certificate Manager
 * Cloudformation
 
 ## Getting Started
 
 This will get you a copy of the project up and running on
 your local machine for development and testing purposes.
-See [deployment](#Deployment) for notes on deploying the project on a live system.
+See [deployment](#deployment) for notes on deploying the project on a live system.
 
 ### Prerequisites
 
-Requires Node.js and npm.
+Requires Node.js and npm. NVM is also recommended.
+
+### Installation
+
+```bash
+nvm use
+npm install
+```
+
+### Development
+
+```bash
+# start the development server
+npm run start
+
+# build the site
+npm run build
+
+# clean build site
+npm run clean
+
+# clean build and dependencies
+npm run clean-all
+```
+
+### Testing
+
+Validation is currently limited to spell checking.
+CSpell is used to check spelling in markdown and other files.
+
+```bash
+# check all source files
+npm run cspell-source
+
+# check all files changed since last commit
+npm run cspell-changed
+```
 
 ## Deployment
 
-## Tips
+The site is deployed to [mkoelle.com](https://mkoelle.com) 
+via pipeline on check-in or merge to the `main` branch.
+Deployments to a staging environment are triggered for all other branches.
 
-- `npx cspell src/**/* --show-suggestions --unique`
-- `git diff --name-only | npx cspell --file-list stdin --show-suggestions --unique`
+### Content
+
+Content is deployed via the `scripts/content-deploy.sh` script.
+This script will build the site and sync the content to the S3 bucket.
+
+### Infrastructure
+
+The infrastructure is defined using AWS Cloudformation.
+The stack is defined in `infra/cfn/infra.yaml`.
+
+This stack is dependant on another centralized stack for the hosted zone.
+
+The infrastructure is deployed via the `scripts/infra-deploy.sh` script.
+This script will deploy the infrastructure stack.
 
 ## Credits
 
@@ -59,9 +113,13 @@ Styles and layout were influenced by the following sources:
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 <!-- Badges -->
-[Svelte_badge]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte
 [11ty_badge]: https://img.shields.io/badge/eleventy-4A4A55?style=for-the-badge&logo=eleventy
-<!-- Guides -->
+[Tailwind_badge]: https://img.shields.io/badge/Tailwind-007080?style=for-the-badge&logo=tailwindcss
+[PrismJS_badge]: https://img.shields.io/badge/PrismJS-000000?style=for-the-badge
+[Cusdis_badge]: https://img.shields.io/badge/Cusdis-000000?style=for-the-badge
+[AlpineJS_badge]: https://img.shields.io/badge/AlpineJS-408090?style=for-the-badge&logo=alpinedotjs
+[AWS_badge]: https://img.shields.io/badge/Amazon_Web_Services-202030?style=flat&logo=amazonwebservices
+<!-- Links -->
 [janowski_starter]: https://www.janowski.dev/articles/how-to-set-up-personal-website-with-markdown-tailwind-alpinejs/
 [fullstackdigital_starter]: https://fullstackdigital.io/blog/eleventy-vite-tailwind-and-alpine-js-rapid-static-site-starter-framework/
 [Atom_Template]: https://redpixelthemes.com/templates/atom/
