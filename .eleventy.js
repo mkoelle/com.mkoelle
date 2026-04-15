@@ -4,10 +4,9 @@ const fs = require('fs')
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
-module.exports = (eleventyConfig) => {
-
+module.exports = async (eleventyConfig) =>  {
+    const EleventyVitePlugin = (await import("@11ty/eleventy-plugin-vite")).default;
     eleventyConfig.setLibrary("md", markdownIt({
         html: true,
         breaks: false,
@@ -16,7 +15,7 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-    eleventyConfig.addPlugin(EleventyVitePlugin, {});
+    eleventyConfig.addPlugin(EleventyVitePlugin);
     eleventyConfig.addPassthroughCopy('src/assets')
     eleventyConfig.addPassthroughCopy('src/robots.txt')
 
