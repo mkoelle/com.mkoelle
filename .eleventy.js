@@ -19,7 +19,6 @@ module.exports = async (eleventyConfig) =>  {
     eleventyConfig.addPassthroughCopy('src/assets')
     eleventyConfig.addPassthroughCopy('src/robots.txt')
 
-    eleventyConfig.addWatchTarget('./tailwind.config.js')
 
     eleventyConfig.addShortcode('currentDate', (date = DateTime.now()) => {
         return date;
