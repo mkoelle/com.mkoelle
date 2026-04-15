@@ -5,7 +5,7 @@ const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 
-module.exports = async (eleventyConfig) =>  {
+module.exports = async (eleventyConfig) => {
     const EleventyVitePlugin = (await import("@11ty/eleventy-plugin-vite")).default;
     eleventyConfig.setLibrary("md", markdownIt({
         html: true,
@@ -25,7 +25,6 @@ module.exports = async (eleventyConfig) =>  {
     })
 
     eleventyConfig.addShortcode("modifiedDate", (path = this.page?.inputPath) => {
-        console.log(path)
         return fs.statSync(path)?.mtime?.toISOString()
     });
 

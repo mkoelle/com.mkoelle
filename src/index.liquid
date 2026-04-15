@@ -46,7 +46,7 @@ socials: site.social
         </div>
         <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0 space-x-2 ">
           {%- for social in site.social %}
-          <a href="{{ social.url }}">
+          <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ social.title }}">
             <div class="bx {{ social.logo }} text-2xl  hover:text-orange-400"></div>
           </a>
           {%- endfor %}
