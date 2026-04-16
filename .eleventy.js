@@ -16,16 +16,19 @@ module.exports = async (eleventyConfig) => {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     eleventyConfig.addPlugin(EleventyVitePlugin);
-    eleventyConfig.addPassthroughCopy('src/assets')
+    eleventyConfig.addPassthroughCopy('src/assets/img')
+    eleventyConfig.addPassthroughCopy('src/assets/audio')
     eleventyConfig.addPassthroughCopy('src/robots.txt')
 
 
     eleventyConfig.addShortcode('currentDate', (date = DateTime.now()) => {
-        return date;
+        return DateTime.now().toISO();
     })
 
-    eleventyConfig.addShortcode("modifiedDate", (path = this.page?.inputPath) => {
-        return fs.statSync(path)?.mtime?.toISOString()
+    eleventyConfig.addAsyncShortcode("modifiedDate", async function (path) {
+        const filePath = path || this.page?.inputPath;
+        const stats = await fs.promises.stat(filePath);
+        return stats?.mtime?.toISOString();
     });
 
     eleventyConfig.addFilter("postDate", (dateObj) => {

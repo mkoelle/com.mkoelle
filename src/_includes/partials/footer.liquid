@@ -1,7 +1,7 @@
 <div class="bg-gradient-to-t from-emerald-950 text-white min-h-16 z-10 " id="footer">
   <div class="container flex flex-col justify-between py-6 sm:flex-row mx-auto">
     <p class="text-center md:text-left">
-      © Copyright 2026. All rights reserved, mkoelle.
+      © Copyright <span x-text="new Date().getFullYear()">2026</span>. All rights reserved, mkoelle.
     </p>
     <div class="flex items-center justify-center pt-5 sm:justify-end sm:pt-0 space-x-2 ">
       {%- for social in socials %}

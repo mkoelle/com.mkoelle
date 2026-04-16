@@ -8,5 +8,4 @@ _tmp/
 # js
 node_modules/
 
-foo
 .11ty-vite
