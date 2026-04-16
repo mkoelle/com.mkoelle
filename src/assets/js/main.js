@@ -1,10 +1,9 @@
 import '../css/index.css';
-import 'prismjs/themes/prism-okaidia.css';
-import 'boxicons/css/boxicons.min.css';
-import Alpine from 'alpinejs'
+import Alpine from 'alpinejs';
 
-window.Alpine = Alpine
+// Register Alpine plugins here, BEFORE Alpine.start():
+// import persist from '@alpinejs/persist';
+// Alpine.plugin(persist);
 
-// Add Alpine extensions here
-
-Alpine.start()
+window.Alpine = Alpine;
+Alpine.start();

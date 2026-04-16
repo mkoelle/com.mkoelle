@@ -16,7 +16,7 @@ set -x
 
 BUCKET=$(aws cloudformation list-exports --query "Exports[?Name == 'com-${DOMAIN}-content-bucket'].Value" --output text)
 
-npm i
+npm ci
 npm run build
 
 aws s3 sync _site "s3://${BUCKET}" \

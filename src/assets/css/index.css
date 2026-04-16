@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "boxicons/css/boxicons.min.css";
+@import "prismjs/themes/prism-okaidia.css";
 
 /* Dark mode via class — matches Alpine.js toggle on <html class="dark"> */
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));

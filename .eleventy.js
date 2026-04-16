@@ -18,6 +18,8 @@ module.exports = async (eleventyConfig) => {
     eleventyConfig.addPlugin(EleventyVitePlugin);
     eleventyConfig.addPassthroughCopy('src/assets/img')
     eleventyConfig.addPassthroughCopy('src/assets/audio')
+    eleventyConfig.addPassthroughCopy('src/assets/js')
+    eleventyConfig.addPassthroughCopy('src/assets/css')
     eleventyConfig.addPassthroughCopy('src/robots.txt')
 
 
