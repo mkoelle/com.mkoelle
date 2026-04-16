@@ -20,6 +20,7 @@ module.exports = async (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy('src/assets/audio')
     eleventyConfig.addPassthroughCopy('src/assets/js')
     eleventyConfig.addPassthroughCopy('src/assets/css')
+    eleventyConfig.addPassthroughCopy({ 'node_modules/boxicons/fonts': 'fonts' })
     eleventyConfig.addPassthroughCopy('src/robots.txt')
 
 
