@@ -13,7 +13,9 @@
     "clean": "rimraf _site",
     "nuke": "rimraf _site node_modules package-lock.json",
     "deps": "ncu",
-    "deps-update": "ncu -u"
+    "deps-update": "ncu -u",
+    "postinstall": "node scripts/copy-fonts.mjs",
+    "copy-fonts": "node scripts/copy-fonts.mjs"
   },
   "repository": {
     "type": "git",

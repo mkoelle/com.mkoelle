@@ -37,7 +37,7 @@
     {{ content }}
     {% endblock %}
   {% render "partials/footer", socials: site.social %}
-  <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+  <script type="module" src="/assets/js/main.js"></script>
   <div @keyup.space.window="$refs.wow.play()"></div>
   <audio x-ref="wow">
     <source src="/assets/audio/owen-wilson-wow-q.mp3" type="audio/mpeg" />

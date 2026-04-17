@@ -2,5 +2,16 @@
 @import "boxicons/css/boxicons.min.css";
 @import "prismjs/themes/prism-okaidia.css";
 
+/* Self-hosted override — paths are relative to this file
+   (src/assets/css/), so they resolve into src/assets/fonts/ */
+@font-face {
+  font-family: "boxicons";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/boxicons.woff2") format("woff2"),
+       url("/assets/fonts/boxicons.woff")  format("woff");
+}
+
 /* Dark mode via class — matches Alpine.js toggle on <html class="dark"> */
 @custom-variant dark (&:where(.dark, .dark *));

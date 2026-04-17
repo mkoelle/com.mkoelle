@@ -9,3 +9,6 @@ _tmp/
 node_modules/
 
 .11ty-vite
+
+# Vendored third-party fonts (copied from node_modules by postinstall)
+src/assets/fonts/boxicons.*

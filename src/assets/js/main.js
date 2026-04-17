@@ -1,4 +1,4 @@
-import '../css/index.css';
+import '/assets/css/index.css';
 import Alpine from 'alpinejs';
 
 // Register Alpine plugins here, BEFORE Alpine.start():
