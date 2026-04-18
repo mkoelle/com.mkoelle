@@ -1,8 +1,9 @@
-import '../css/index.css';
-import Alpine from 'alpinejs'
- 
-window.Alpine = Alpine
+import '/assets/css/index.css';
+import Alpine from 'alpinejs';
 
-// Add Alpine extensions here
- 
-Alpine.start()
+// Register Alpine plugins here, BEFORE Alpine.start():
+// import persist from '@alpinejs/persist';
+// Alpine.plugin(persist);
+
+window.Alpine = Alpine;
+Alpine.start();

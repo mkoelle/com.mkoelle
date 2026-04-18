@@ -27,4 +27,5 @@ aws cloudformation deploy \
   --tags \
       Owner=mkoelle \
       Project=com.${DOMAIN} \
-      Code=com.mkoelle
+      Code=com.mkoelle \
+  --no-fail-on-empty-changeset

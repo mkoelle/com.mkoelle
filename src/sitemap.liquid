@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: True
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for page in collections.all %}
     <url>
-      <loc>https://mkoelle.com{{ page.url }}</loc>
+      <loc>{{ site.baseURL }}{{ page.url }}</loc>
       <lastmod>{% modifiedDate page.inputPath %}</lastmod>
     </url>
   {% endfor %}
