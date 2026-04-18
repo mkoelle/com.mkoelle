@@ -2,13 +2,20 @@
   "name": "com.mkoelle",
   "version": "1.0.0",
   "description": "Base project for mkoelle.com",
+  "engines": {
+    "node": ">=24"
+  },
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rimraf _site",
+    "nuke": "rimraf _site node_modules package-lock.json",
     "deps": "ncu",
-    "deps:update": "ncu -u"
+    "deps-update": "ncu -u",
+    "postinstall": "node scripts/copy-fonts.mjs",
+    "copy-fonts": "node scripts/copy-fonts.mjs"
   },
   "repository": {
     "type": "git",
@@ -21,7 +28,21 @@
   },
   "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
   "devDependencies": {
-    "npm-check-updates": "^11.8.5",
-    "vitepress": "^0.20.0"
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
+    "@tailwindcss/postcss": "^4.2.2",
+    "daisyui": "^5.5.19",
+    "luxon": "^3.7.2",
+    "markdown-it": "^14.1.1",
+    "npm-check-updates": "^21.0.0",
+    "postcss": "^8.5.9",
+    "prismjs": "^1.30.0",
+    "rimraf": "^6.1.3"
+  },
+  "dependencies": {
+    "alpinejs": "^3.15.11",
+    "boxicons": "^2.1.4"
   }
 }

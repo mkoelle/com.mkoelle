@@ -1,0 +1,11 @@
+---
+layout: _base
+---
+<main class="flex-grow container mx-auto">
+  {{ content }}
+  <div id="cusdis_thread" data-host="{{ site.cusdisHost }}" data-app-id="{{ site.cusdisAppId }}"
+    data-page-id="{{ page.url }}" data-page-url="{{ page.url }}"
+    data-page-title="{{site.title}}{% if title %} - {{title}}{% endif %}">
+  </div>
+  <script async defer src="/assets/js/cusdis.js"></script>
+</main>

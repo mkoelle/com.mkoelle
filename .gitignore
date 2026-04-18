@@ -1,1 +1,14 @@
-node_modules
+# mac filesystem  
+.DS_Store
+
+# 11ty generated files
+_site/
+_tmp/
+
+# js
+node_modules/
+
+.11ty-vite
+
+# Vendored third-party fonts (copied from node_modules by postinstall)
+src/assets/fonts/boxicons.*
