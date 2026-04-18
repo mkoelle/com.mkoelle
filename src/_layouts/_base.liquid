@@ -6,25 +6,38 @@
   <title>{{site.title}}{% if title %} - {{title}}{% endif %}
   </title>
   <meta charset="UTF-8" />
-  {% if description %}
-  <meta name="description" content="{{description}}" />
-  {% endif %}
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="description" content="{{ description | default: site.description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ site.baseURL }}{{ page.url }}" />
+  <meta property="og:title" content="{{ title | default: site.title }}" />
+  <meta property="og:description" content="{{ description | default: site.description }}" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ title | default: site.title }}" />
+  <meta name="twitter:description" content="{{ description | default: site.description }}" />
+  <link rel="canonical" href="{{ site.baseURL }}{{ page.url }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
-  <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
-  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
   {% block head %}{% endblock %}
+  <meta name="generator" content="{{ eleventy.generator }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "url": "{{ site.baseURL }}",
+    "sameAs": [{% for s in site.social %}"{{ s.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+  }
+  </script>
 </head>
 
 <body
   class="antialiased bg-cover bg-no-repeat bg-fixed bg-center dark:bg-black dark:bg-gradient-to-br dark:from-emerald-900 dark:text-white bg-green-400 text-black bg-gradient-to-tl from-white flex flex-col min-h-screen ">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black">Skip to main content</a>
   {% render "partials/_navigation", collections: collections, page: page %}
     {% block content %}
     {{ content }}
     {% endblock %}
   {% render "partials/footer", socials: site.social %}
-  <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+  <script type="module" src="/assets/js/main.js"></script>
   <div @keyup.space.window="$refs.wow.play()"></div>
   <audio x-ref="wow">
     <source src="/assets/audio/owen-wilson-wow-q.mp3" type="audio/mpeg" />

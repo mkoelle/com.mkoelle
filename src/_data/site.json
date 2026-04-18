@@ -26,5 +26,7 @@
             "logo": "bxl-facebook-square",
             "url": "https://www.facebook.com/mark.koelle"
         }
-    ]
+    ],
+    "cusdisHost": "https://cusdis.com",
+    "cusdisAppId": "8b311843-9ee0-4069-8fd5-fa867e9952e2"
 }

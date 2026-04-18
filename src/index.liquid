@@ -18,7 +18,7 @@ skills:
 ---
 
 {% render "partials/_profile_hero",
-sting: "Hey, Mark Koelle Here!" ,
+heading: "Hey, Mark Koelle Here!" ,
 socials: site.social
 %}
 
@@ -37,7 +37,7 @@ socials: site.social
       </p>
       <div class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start">
         <div class="flex items-center justify-center sm:justify-start">
-          <p class="text-lg font-semibold uppercase text-grey-200">
+          <p class="text-lg font-semibold uppercase text-gray-200">
             Connect on
           </p>
           <div class="hidden sm:block">
@@ -46,7 +46,7 @@ socials: site.social
         </div>
         <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0 space-x-2 ">
           {%- for social in site.social %}
-          <a href="{{ social.url }}">
+          <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ social.title }}">
             <div class="bx {{ social.logo }} text-2xl  hover:text-orange-400"></div>
           </a>
           {%- endfor %}

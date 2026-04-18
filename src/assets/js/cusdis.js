@@ -1,3 +1,7 @@
+// Cusdis embed script (vendored)
+// Source: https://cusdis.com
+// Version: ~1.x (embedded copy, pinned for offline use)
+// Note: References /assets/css/feedback.css for iframe styling
 window.CUSDIS = {};
 let e;
 function t(t) {
