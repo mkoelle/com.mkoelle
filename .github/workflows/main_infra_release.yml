@@ -1,5 +1,5 @@
 name: Main - Infra
-on: 
+on:
   push:
     paths:
       - 'infra/**'
@@ -7,6 +7,9 @@ on:
       - '.github/**'
     branches:
       - main
+concurrency:
+  group: main-infra
+  cancel-in-progress: false
 jobs:
   validate:
     name: Validate
@@ -27,17 +30,17 @@ jobs:
     environment:
       name: dev
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Configure AWS credentials from Test account
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-    - name: Copy files to the test website with the AWS CLI
-      run: |
-        ./scripts/infra-deploy.sh
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy infrastructure changes
+        run: |
+          ./scripts/infra-deploy.sh
 
   deploy-prod:
     name: Deploy Prod
@@ -46,14 +49,14 @@ jobs:
     environment:
       name: prod
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Configure AWS credentials from Test account
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-    - name: Copy files to the test website with the AWS CLI
-      run: |
-        ./scripts/infra-deploy.sh
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy infrastructure changes
+        run: |
+          ./scripts/infra-deploy.sh
