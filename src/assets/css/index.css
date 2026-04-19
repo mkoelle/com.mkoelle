@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "boxicons/css/boxicons.min.css";
 @import "prismjs/themes/prism-okaidia.css";
+@plugin "@tailwindcss/typography";
 
 /* Self-hosted override — paths are relative to this file
    (src/assets/css/), so they resolve into src/assets/fonts/ */
