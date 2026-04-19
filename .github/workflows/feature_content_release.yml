@@ -1,8 +1,11 @@
 name: Feature - Content
-on: 
+on:
   push:
     branches-ignore:
       - main
+concurrency:
+  group: feature-content-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     name: Test
@@ -15,7 +18,7 @@ jobs:
           ./scripts/content-test.sh
   dev:
     needs: test
-    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@feature/11ty
+    uses: mkoelle/com.mkoelle/.github/workflows/shared_content_deploy.yml@main
     with:
       environment: dev
     secrets:

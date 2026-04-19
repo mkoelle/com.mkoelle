@@ -1,5 +1,5 @@
 name: Feature - Infra
-on: 
+on:
   push:
     paths:
       - 'infra/**'
@@ -7,6 +7,9 @@ on:
       - '.github/**'
     branches-ignore:
       - main
+concurrency:
+  group: feature-infra-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   validate:
     name: Validate
