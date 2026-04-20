@@ -1,15 +1,47 @@
 {% assign navPages = collections.all | eleventyNavigation %}
-<nav class="flex h-13 bg-black text-white z-10">
-  <div class="flex-grow "></div>
-  {%- for entry in navPages %}
-  <a href="{{ entry.url }}" 
-{% if entry.url==page.url %} aria-current="page" data-state="active" {% endif %}
-   class="px-4 hover:text-teal-400">{{
-    entry.title }}</a>
-  {%- endfor %}
-  <div class="flex-grow flex justify-end mr-3 lg:mr-10 ">
-    <button @click="darkMode = !darkMode" class="bx bx-moon dark:bx-sun" aria-label="Toggle dark mode"></button>
-    </div>
+<nav class="flex items-center justify-between bg-black text-white z-10 px-2 sm:px-4 min-h-16" aria-label="Main navigation">
+  <!-- Left Spacer for Desktop Centering -->
+  <div class="hidden md:block flex-1"></div>
 
+  <!-- Center Links -->
+  <div class="flex-none">
+    <ul class="flex flex-row items-center px-1 gap-4 sm:gap-6 flex-nowrap">
+      {%- for entry in navPages %}
+      <li>
+        <a href="{{ entry.url }}" 
+           {% if entry.url == page.url %}aria-current="page"{% endif %}
+           class="{% if entry.url == page.url %}text-teal-400{% endif %} hover:text-teal-400 font-medium whitespace-nowrap transition-colors">
+          {{ entry.title }}
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+
+  <!-- Right Toggle Container -->
+  <div class="flex-none md:flex-1 flex justify-end items-center pr-2 lg:pr-8">
+    <!-- Mobile toggle -->
+    <label class="md:hidden swap swap-rotate btn btn-ghost btn-circle hover:text-teal-400" aria-label="Toggle dark mode">
+      <input type="checkbox" class="hidden" x-model="darkMode" />
+      <i class="swap-on bx bx-sun text-2xl" aria-hidden="true"></i>
+      <i class="swap-off bx bx-moon text-2xl" aria-hidden="true"></i>
+    </label>
+    
+    <!-- Desktop toggle -->
+    <div class="hidden md:flex items-center gap-1">
+      <button @click="darkMode = false" 
+              class="btn btn-ghost btn-circle hover:text-teal-400 transition-colors" 
+              :class="!darkMode ? 'text-teal-400' : 'text-white/50'"
+              aria-label="Set light mode">
+        <i class="bx bx-sun text-2xl" aria-hidden="true"></i>
+      </button>
+      <button @click="darkMode = true" 
+              class="btn btn-ghost btn-circle hover:text-teal-400 transition-colors" 
+              :class="darkMode ? 'text-teal-400' : 'text-white/50'"
+              aria-label="Set dark mode">
+        <i class="bx bx-moon text-2xl" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
 </nav>
-<div class="w-full bg-gradient-to-b from-black h-3 md:h-6 z-10"></div>
+<div class="w-full bg-linear-to-b from-black to-transparent h-4 md:h-8 z-10"></div>

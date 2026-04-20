@@ -20,6 +20,7 @@ Highly technical and team-oriented software engineering professional with over 1
 - **.NET Technologies:** C#, .NET Core, ASP.NET MVC 5, Entity Framework, Microsoft Release Management
 - **Architecture & Design:** AOP, Build and deployment management, Code quality metrics, Design patterns, Framework design, IoC and DI, Legacy conversion, Load-balanced environments, N-Tier design, SOA, Automated system monitoring, Log design and aggregation, 3rd-party vendor integration
 - **Lifecycle & Agile Practices:** Agile/Extreme Programming, Estimation techniques, Inception and retrospective facilitation, Incremental delivery, Iterative metric tracking, Story creation, Value-driven development
+- **Voice/IVR:** Genesys Voice Apps, Composer / Voice Studio, URS / IRD, GVP, Outbound Contact, Call-flow Design
 - **Automated Testing:** TDD, BDD, Spec-based documentation generation, Integration testing, Load & stress testing, Mocking, Test automation, Test harness creation
 - **Database Management:** DynamoDb, SimpleDb, Aurora, Oracle, PL/SQL, SQL Server, T-SQL, Schema design
 
@@ -52,7 +53,7 @@ Highly technical and team-oriented software engineering professional with over 1
 **Volkswagen Credit, Libertyville, IL** \
 *2019 – 2020*
 
-- Led cloud platform enablement initiatives, setting AWS standards and providing core tools and frameworks for development teams.
+- Led cloud platform enablement initiatives using Docker, Fargate, and AWS, setting standards and providing core tools and frameworks for development teams.
 - Assisted development teams in adopting AWS and SAFe Agile practices, accelerating cloud-readiness across the organization.
 - Deployed a company-wide SonarQube instance with supporting CI/CD pipelines, establishing a baseline for code quality across all teams.
 - Replaced Microsoft Release Management with Concourse CI and AWS CodeBuild, enabling cloud-managed CI/CD for on-prem deployments.
