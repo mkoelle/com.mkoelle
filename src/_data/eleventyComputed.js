@@ -1,7 +1,5 @@
-// items will not render if parent path does not match an existing key
-// as a result all parent folders will need an index for this to work
-// this would have been easier if data.collections was not an empty object
-
+// Nav items only render if their parent path matches an existing key,
+// so every parent folder needs its own index page for this to work.
 const parentPath = (path) => {
    const subStrings = path?.split('/')
    return subStrings.length <= 3

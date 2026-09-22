@@ -28,22 +28,22 @@
   },
   "homepage": "https://github.com/mkoelle/com.mkoelle#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-navigation": "^1.0.5",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "@11ty/eleventy-plugin-vite": "^7.0.0",
-    "@tailwindcss/postcss": "^4.2.2",
-    "daisyui": "^5.5.19",
+    "@11ty/eleventy-plugin-vite": "^7.1.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "daisyui": "^5.7.43",
     "luxon": "^3.7.2",
-    "markdown-it": "^14.1.1",
-    "npm-check-updates": "^21.0.0",
-    "postcss": "^8.5.9",
+    "markdown-it": "^14.3.2",
+    "npm-check-updates": "^21.0.3",
+    "postcss": "^8.5.28",
     "prismjs": "^1.30.0",
     "rimraf": "^6.1.3"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "alpinejs": "^3.15.11",
+    "@tailwindcss/typography": "^0.5.20",
+    "alpinejs": "^3.17.4",
     "boxicons": "^2.1.4"
   }
 }
